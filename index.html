@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perspective Clock</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="mode-indicator">Clock Mode</div>
+        <div class="clock">
+            <div class="layer" id="layer1" style="transform: translateZ(0px)"></div>
+            <div class="layer" id="layer2" style="transform: translateZ(-50px)"></div>
+            <div class="layer" id="layer3" style="transform: translateZ(-100px)"></div>
+            
+            <div class="digit" id="time">00:00:00</div>
+            
+            <div class="hand hour-hand" id="hourHand"></div>
+            <div class="hand minute-hand" id="minuteHand"></div>
+            <div class="hand second-hand" id="secondHand"></div>
+            <div class="center-dot"></div>
+            
+            <div class="time-trails" id="timeTrails"></div>
+        </div>
+    </div>
+    
+    <div class="controls">
+        <button id="startStop">Start Stopwatch</button>
+        <button id="reset">Reset</button>
+        <button id="toggleMode">Switch to Stopwatch</button>
+        <button id="toggleSettings">Settings</button>
+    </div>
+    
+    <div class="settings" id="settings">
+        <h3>Perspective Settings</h3>
+        <label for="depthLevel">Depth Level</label>
+        <input type="range" id="depthLevel" min="500" max="2000" value="1000">
+        
+        <label for="rotationSpeed">Auto Rotation Speed</label>
+        <input type="range" id="rotationSpeed" min="0" max="5" step="0.1" value="0">
+        
+        <label for="trailIntensity">Time Trail Intensity</label>
+        <input type="range" id="trailIntensity" min="0" max="10" value="5">
+        
+        <h3>Color Theme</h3>
+        <div>
+            <input type="radio" id="themeCyan" name="theme" value="cyan" checked>
+            <label for="themeCyan">Cyan</label>
+        </div>
+        <div>
+            <input type="radio" id="themePurple" name="theme" value="purple">
+            <label for="themePurple">Purple</label>
+        </div>
+        <div>
+            <input type="radio" id="themeGreen" name="theme" value="green">
+            <label for="themeGreen">Green</label>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

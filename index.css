@@ -1,0 +1,244 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #0f0f0f;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+}
+
+.clock {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.digit {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 80px;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+    transform-style: preserve-3d;
+    backface-visibility: visible;
+}
+
+.controls {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 100;
+}
+
+button {
+    padding: 10px 20px;
+    background: rgba(0, 255, 255, 0.2);
+    color: white;
+    border: 1px solid cyan;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background: rgba(0, 255, 255, 0.4);
+}
+
+.settings {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 8px;
+    color: white;
+    z-index: 100;
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+input[type="range"] {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.mode-indicator {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 8px 15px;
+    border-radius: 20px;
+    color: cyan;
+    font-weight: bold;
+}
+
+.layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    background: rgba(0, 0, 0, 0.5);
+    transform-style: preserve-3d;
+}
+
+.marker {
+    position: absolute;
+    width: 2px;
+    height: 20px;
+    background: cyan;
+    transform-origin: bottom center;
+}
+
+.hand {
+    position: absolute;
+    transform-origin: bottom center;
+    background: white;
+    border-radius: 50% 50% 0 0;
+    z-index: 10;
+    left: 50%; 
+    bottom: 50%; 
+    transform-origin: center bottom; 
+}
+
+.second-hand {
+    width: 2px;
+    height: 160px;
+    background: red;
+    margin-left: -1px; 
+}
+
+.minute-hand {
+    width: 4px;
+    height: 140px;
+    background: cyan;
+    margin-left: -2px; 
+}
+
+.hour-hand {
+    width: 6px;
+    height: 100px;
+    background: white;
+    margin-left: -3px; 
+}
+
+.center-dot {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: white;
+    border-radius: 50%;
+    z-index: 11;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); 
+}
+
+.time-trails {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.trail {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(0, 255, 255, 0.1);
+    transform: translateZ(0px);
+}
+
+/* Theme: Purple */
+.theme-purple button {
+    border-color: #bf00ff;
+    background: rgba(191, 0, 255, 0.2);
+}
+
+.theme-purple button:hover {
+    background: rgba(191, 0, 255, 0.4);
+}
+
+.theme-purple .mode-indicator {
+    color: #bf00ff;
+}
+
+.theme-purple .marker {
+    background: #bf00ff;
+}
+
+.theme-purple .minute-hand {
+    background: #bf00ff;
+}
+
+.theme-purple .digit {
+    text-shadow: 0 0 10px rgba(191, 0, 255, 0.7);
+}
+
+.theme-purple .layer {
+    box-shadow: 0 0 20px rgba(191, 0, 255, 0.3);
+}
+
+.theme-purple .trail {
+    background: rgba(191, 0, 255, 0.1);
+}
+
+/* Theme: Green */
+.theme-green button {
+    border-color: #00ff66;
+    background: rgba(0, 255, 102, 0.2);
+}
+
+.theme-green button:hover {
+    background: rgba(0, 255, 102, 0.4);
+}
+
+.theme-green .mode-indicator {
+    color: #00ff66;
+}
+
+.theme-green .marker {
+    background: #00ff66;
+}
+
+.theme-green .minute-hand {
+    background: #00ff66;
+}
+
+.theme-green .digit {
+    text-shadow: 0 0 10px rgba(0, 255, 102, 0.7);
+}
+
+.theme-green .layer {
+    box-shadow: 0 0 20px rgba(0, 255, 102, 0.3);
+}
+
+.theme-green .trail {
+    background: rgba(0, 255, 102, 0.1);
+}
